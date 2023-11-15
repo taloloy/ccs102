@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define studentr 0.10
+#define seniorr 0.15
+#define pwdr 0.20
+#define minorr 0.05
+
+main(){
+	char l = 'Y';
+	int ans;
+	float tAm, tPay;
+	
+	{
+		printf("Greeting Costumer!\nWe have an ANNIVERSARY SALE for a month.");
+		printf("\n\n** PLEASE CHOOSE: **\n");
+		printf("[1] - STUDENT\n[2] - SENIOR CITIZEN\n[3] - PWD\n[4] - MINOR\n[0] - QUIT");
+		printf("\nChoose from above (0-4): ");
+		scanf("%d", &ans);
+		if(ans = 1){
+			tPay = tAm *studentr;	
+		} else if(ans = 2){
+			tPay = tAm *seniorr;
+		} else if(ans = 3){
+			tPay = tAm * pwdr;
+		} else if(ans = 4){
+		} tPay = tAm *minorr;
+		}
+		printf("TOTAL AMOUNT TO BE PAYED: %.2f", tPay);
+
+}
