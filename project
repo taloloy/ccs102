@@ -10,6 +10,7 @@ main(){
 	float tAm, tPay, discAm;
 	
 
+do{
 
 	do{
 		printf("Greeting Costumer!\nWe have an ANNIVERSARY SALE for a month.");
@@ -37,9 +38,12 @@ main(){
 		} discAm = tAm *minorr;
 		tPay = tAm - discAm;
 		
-		printf("TOTAL AMOUNT TO BE PAYED: %.2f", tPay);
+		printf("Total Discount of the Costumer: %.2f", discAm);
+		printf("\nTOTAL AMOUNT TO BE PAYED: %.2f", tPay);
 		printf("\nAnother Costumer? (Y/N)?: ");
 		con = getche();
 		printf("\n");
-}while(toupper(ans) == 'Y');
+      }while(toupper(ans) == 'Y');
+      printf("\n");
+   }while(ans != 0); 
 }
