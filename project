@@ -5,25 +5,41 @@
 #define minorr 0.05
 
 main(){
-	char l = 'Y';
+	char con;
 	int ans;
-	float tAm, tPay;
+	float tAm, tPay, discAm;
 	
-	{
+
+
+	do{
 		printf("Greeting Costumer!\nWe have an ANNIVERSARY SALE for a month.");
 		printf("\n\n** PLEASE CHOOSE: **\n");
 		printf("[1] - STUDENT\n[2] - SENIOR CITIZEN\n[3] - PWD\n[4] - MINOR\n[0] - QUIT");
 		printf("\nChoose from above (0-4): ");
 		scanf("%d", &ans);
+		if(ans > 4 || ans < 0){
+				printf("Wrong option.\n\n");
+			}
+		}while(ans > 4 || ans < 0);	
+		if(ans != 0){
+		printf("Enter total amount purchased: ");
+		scanf("%f", &tAm);
 		if(ans = 1){
-			tPay = tAm *studentr;	
+			discAm = tAm *studentr;	
+			tPay = tAm - discAm;
 		} else if(ans = 2){
-			tPay = tAm *seniorr;
+			discAm = tAm *seniorr;
+			tPay = tAm - discAm;
 		} else if(ans = 3){
-			tPay = tAm * pwdr;
+			discAm = tAm * pwdr;
+			tPay = tAm - discAm;
 		} else if(ans = 4){
-		} tPay = tAm *minorr;
-		}
+		} discAm = tAm *minorr;
+		tPay = tAm - discAm;
+		
 		printf("TOTAL AMOUNT TO BE PAYED: %.2f", tPay);
-
+		printf("\nAnother Costumer? (Y/N)?: ");
+		con = getche();
+		printf("\n");
+}while(toupper(ans) == 'Y');
 }
