@@ -1,49 +1,59 @@
 #include <stdio.h>
-#define studentr 0.10
-#define seniorr 0.15
-#define pwdr 0.20
-#define minorr 0.05
 
-main(){
-	char con;
-	int ans;
-	float tAm, tPay, discAm;
-	
+#define STUDENT_RATE 0.10
+#define SENIOR_RATE 0.15
+#define PWD_RATE 0.20
+#define MINOR_RATE 0.05
 
-do{
+int main() {
+    char con;
+    int ans;
+    float tAm, tPay, discAm;
 
-	do{
-		printf("Greeting Costumer!\nWe have an ANNIVERSARY SALE for a month.");
-		printf("\n\n** PLEASE CHOOSE: **\n");
-		printf("[1] - STUDENT\n[2] - SENIOR CITIZEN\n[3] - PWD\n[4] - MINOR\n[0] - QUIT");
-		printf("\nChoose from above (0-4): ");
-		scanf("%d", &ans);
-		if(ans > 4 || ans < 0){
-				printf("Wrong option.\n\n");
-			}
-		}while(ans > 4 || ans < 0);	
-		if(ans != 0){
-		printf("Enter total amount purchased: ");
-		scanf("%f", &tAm);
-		if(ans = 1){
-			discAm = tAm *studentr;	
-			tPay = tAm - discAm;
-		} else if(ans = 2){
-			discAm = tAm *seniorr;
-			tPay = tAm - discAm;
-		} else if(ans = 3){
-			discAm = tAm * pwdr;
-			tPay = tAm - discAm;
-		} else if(ans = 4){
-		} discAm = tAm *minorr;
-		tPay = tAm - discAm;
-		
-		printf("Total Discount of the Costumer: %.2f", discAm);
-		printf("\nTOTAL AMOUNT TO BE PAYED: %.2f", tPay);
-		printf("\nAnother Costumer? (Y/N)?: ");
-		con = getche();
-		printf("\n");
-      }while(toupper(ans) == 'Y');
-      printf("\n");
-   }while(ans != 0); 
+    do {
+        do {
+            printf("Greetings Customer!\nWe have an ANNIVERSARY SALE for a month.\n\n");
+            printf("** PLEASE CHOOSE: **\n");
+            printf("[1] - STUDENT\n[2] - SENIOR CITIZEN\n[3] - PWD\n[4] - MINOR\n[0] - QUIT\n");
+            printf("Choose from above (0-4): ");
+            scanf("%d", &ans);
+
+            if (ans > 4 || ans < 0) {
+                printf("Wrong option.\n\n");
+            }
+        } while (ans > 4 || ans < 0);
+
+        if (ans != 0) {
+            printf("Enter total amount purchased: ");
+            scanf("%f", &tAm);
+
+            switch (ans) {
+                case 1:
+                    discAm = tAm * STUDENT_RATE;
+                    break;
+                case 2:
+                    discAm = tAm * SENIOR_RATE;
+                    break;
+                case 3:
+                    discAm = tAm * PWD_RATE;
+                    break;
+                case 4:
+                    discAm = tAm * MINOR_RATE;
+                    break;
+            }
+
+            tPay = tAm - discAm;
+
+            printf("Total Discount of the Customer: %.2f\n", discAm);
+            printf("TOTAL AMOUNT TO BE PAID: %.2f\n", tPay);
+            printf("Another Customer? (Y/N): ");
+            con = getche();  // It will directly go to another costumer or stop.
+            printf("\n\n");
+        }
+
+    } while (toupper(con) == 'Y' && ans != 0);
+
+    printf("GOODBYE!!! Please come again. :)\n");
+
+    return 0;
 }
